@@ -1,0 +1,71 @@
+import discord
+from discord.ext import commands
+import random
+import asyncio
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Tu bot está en linea: {bot.user}')
+@bot.command()
+async def info(ctx):
+    await ctx.send(f'comandos: contaminacion, contenedores, materiales. si al escribir el bot no responde revise si ha escrito bien el comando ')
+
+@bot.command()
+async def contaminacion(ctx):
+    await ctx.send(f'Actualmente se acumulan 461 millones de toneladas de residuos contaminantes al año!')
+
+@bot.command()
+async def contenedores(ctx):
+    await ctx.send('Introduzca el color de el contenedor de el cual quiere saber la información (amarillo, verde, azul, marron y gris)')
+
+
+@bot.command()
+async def amarillo(ctx):
+    await ctx.send('El contenedor amarillo sirve para reciclar envases (latas, botellas, tapers...)')
+
+@bot.command()
+async def verde(ctx):
+    await ctx.send('El contenedor verde sirve para reciclar cristales y vidrios (botellas de vino, vasos rotos...)')
+
+@bot.command()
+async def azul(ctx):
+    await ctx.send('El contenedor azul sirve para reciclar cartones y papeles no biodegradables(papel de escribir, cajas de cartón...)')
+
+@bot.command()
+async def marron(ctx):
+    await ctx.send('El contenedor marron sirve para tirar cosas biodegradables(comida, papel de cocina...)')
+
+@bot.command()
+async def gris(ctx):
+    await ctx.send('El contenedor gris sirve para tirar todo lo no mencionado en el resto de colores (colillas de cigarro...)')
+@bot.command()
+async def materiales(ctx):
+    await ctx.send('Escriba el material del cual quieras saber información (plastico, cristal, comida, carton y cigarros)')
+
+@bot.command()
+async def plastico(ctx):
+    await ctx.send('Se calcula que el plástico tarda entre 100 y 1.000 años en descomponerse y los plásticos se obtienen a partir de derivados del petróleo')
+
+@bot.command()
+async def cristal(ctx):
+    await ctx.send('Se calcula que el cristal tarda 4000 años en descomponerse y El vidrio se obtiene de una mezcla de arena silícea o arcilla con óxidos metálicos secos pulverizados que se introducen en un reactor de fusión a temperaturas que superan los 1000ºC.')
+
+@bot.command()
+async def comida(ctx):
+    await ctx.send(' Algunas, como la piel del plátano, tardan sólo de 2 a 10 días, aunque hay otros que pueden tardar, aproximadamente, 4 semanas')
+
+@bot.command()
+async def carton(ctx):
+    await ctx.send('Tiempo de degradación del papel y del cartón: 1 año. Al ser básicamente celulosa, su tiempo de descomposición es escaso y para su fabricación se utilizan fibras vírgenes y pasta de papel reciclado. Las láminas de papel resultantes se unen de manera invisible para el ojo hasta formar las láminas de cartón. ')
+
+@bot.command()
+async def cigarro(ctx):
+    await ctx.send('La combinación de componentes de la colilla hace que su tiempo de degradación oscila entre uno y diez años.')
+
+
+bot.run("MTE4NjM2MTU3NDc5Mzk1MzM1MA.Gj2-Bs.4EiaccKQ8jnJ0smKIL9OWbrmp6Qn8dxGBZ1be0")
